@@ -1,0 +1,44 @@
+---
+import { SITE } from '../data/site';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Not found · Reclaim" description="This page does not exist. The rest of the Reclaim site does.">
+  <div class="container">
+    <p class="label reveal" style="--i: 0">404</p>
+    <h1 class="reveal" style="--i: 1">Nothing here.</h1>
+    <p class="lede reveal" style="--i: 2">
+      This page does not exist — possibly reclaimed a little too eagerly. The
+      <a href="/">home page</a> and <a href="/support/">support</a> are intact, and if a link on
+      this site brought you here, that is a bug worth <a href={SITE.newIssue}>reporting</a>.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .container {
+    padding-top: 96px;
+  }
+
+  h1 {
+    margin-top: 20px;
+    font-family: var(--font-display);
+    font-size: clamp(34px, 6vw, 52px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .lede {
+    margin-top: 20px;
+    max-width: 56ch;
+    font-size: 16.5px;
+    color: var(--ink-2);
+  }
+
+  .lede a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
