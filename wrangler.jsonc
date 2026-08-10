@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "reclaim-web",
+  "compatibility_date": "2026-08-08",
+
+  // Assets-only Worker: no script, Cloudflare serves dist/ directly.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+
+  // Production serves only on the custom domain; DNS and the certificate
+  // are managed automatically because the zone is on Cloudflare.
+  "routes": [{ "pattern": "reclaim-app.dev", "custom_domain": true }],
+  "workers_dev": false,
+
+  // Non-production branch builds still get a shareable preview URL.
+  "preview_urls": true
+}
