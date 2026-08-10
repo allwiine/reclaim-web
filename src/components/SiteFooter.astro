@@ -1,0 +1,57 @@
+---
+import { SITE } from '../data/site';
+import { isCurrentPage } from '../lib/url';
+
+const year = new Date().getFullYear();
+const links = SITE.footerNav.filter(({ href }) => !isCurrentPage(href, Astro.url.pathname));
+---
+
+<footer>
+  <div class="container bar">
+    <span class="fine">© {year} {SITE.name}</span>
+    <nav aria-label="Footer">
+      <ul>
+        {
+          links.map(({ label, href }) => (
+            <li>
+              <a class="quiet-link" href={href}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: 96px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    padding-block: 28px 48px;
+  }
+
+  .fine {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    padding: 0;
+    list-style: none;
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import appIcon from '../assets/app-icon.png';
+import { SITE } from '../data/site';
+import { isCurrentPage } from '../lib/url';
+
+interface Props {
+  /** Show the Download pill after the navigation links. */
+  cta?: boolean;
+}
+
+const { cta = false } = Astro.props;
+---
+
+<header>
+  <div class="container bar">
+    <a class="brand" href="/">
+      <Image src={appIcon} alt="" width={28} height={28} densities={[1, 2]} loading="eager" />
+      {SITE.name}
+    </a>
+    <nav aria-label="Site">
+      <ul>
+        {
+          SITE.nav.map(({ label, href }) => (
+            <li>
+              <a
+                class="quiet-link"
+                href={href}
+                aria-current={isCurrentPage(href, Astro.url.pathname) ? 'page' : undefined}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+        {
+          cta && (
+            <li>
+              <a class="button small" href="#download">
+                Download
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgb(16 16 18 / 85%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 64px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 4vw, 28px);
+    padding: 0;
+    list-style: none;
+  }
+</style>

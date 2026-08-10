@@ -1,0 +1,55 @@
+---
+import { Font, getImage } from 'astro:assets';
+import appIcon from '../assets/app-icon.png';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { SITE } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Content column width; the design uses a different one per page. */
+  maxWidth?: number;
+  /** Show the Download pill in the header (landing page only). */
+  headerCta?: boolean;
+}
+
+const { title, description, maxWidth = 880, headerCta = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const icon = (width: number) => getImage({ src: appIcon, width, height: width, format: 'png' });
+const [favicon, touchIcon, ogImage] = await Promise.all([icon(32), icon(180), icon(1024)]);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101012" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" sizes="32x32" href={favicon.src} />
+    <link rel="apple-touch-icon" href={touchIcon.src} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-mono" preload />
+  </head>
+  <body style={`--max: ${maxWidth}px`}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader cta={headerCta} />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>
