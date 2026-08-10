@@ -1,0 +1,109 @@
+---
+interface Props {
+  index: number;
+  question: string;
+  answer: string;
+  code?: string;
+  open?: boolean;
+}
+
+const { index, question, answer, code, open = false } = Astro.props;
+const number = String(index + 1).padStart(2, '0');
+---
+
+<details name="faq" open={open}>
+  <summary>
+    <span class="number" aria-hidden="true">{number}</span>
+    <h3>{question}</h3>
+  </summary>
+  <div class="answer">
+    <p>{answer}</p>
+    {code && <code>{code}</code>}
+  </div>
+</details>
+
+<style>
+  details {
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  summary {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding-block: 20px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .number {
+    flex: none;
+    width: 22px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+
+  h3 {
+    flex: 1;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  /* The +/− is redundant with the disclosure's own expanded state, so
+     its alternative text is empty and screen readers skip it. */
+  summary::after {
+    content: '+' / '';
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1;
+    color: var(--ink-3);
+  }
+
+  details[open] summary::after {
+    content: '−' / '';
+  }
+
+  .answer {
+    padding: 0 0 20px 42px;
+  }
+
+  .answer p {
+    max-width: 68ch;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+
+  .answer code {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    background: var(--panel);
+    font-size: 12.5px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 0.35s allow-discrete,
+        block-size 0.35s var(--ease-out);
+    }
+
+    details[open]::details-content {
+      block-size: auto;
+    }
+  }
+</style>

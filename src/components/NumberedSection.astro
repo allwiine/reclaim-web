@@ -1,0 +1,41 @@
+---
+interface Props {
+  index: string;
+  title: string;
+}
+
+const { index, title } = Astro.props;
+const id = title.toLowerCase().replaceAll(/[^a-z0-9]+/g, '-').replaceAll(/^-|-$/g, '');
+---
+
+<section aria-labelledby={id}>
+  <div class="rule">
+    <span class="index" aria-hidden="true">{index}</span>
+    <h2 class="label" id={id}>{title}</h2>
+  </div>
+  <slot />
+</section>
+
+<style>
+  section {
+    margin-top: var(--section-gap, 96px);
+  }
+
+  .rule {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+
+  .index {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+
+  h2 {
+    font-weight: 400;
+  }
+</style>
