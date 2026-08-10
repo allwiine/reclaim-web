@@ -35,7 +35,7 @@ const { cta = false } = Astro.props;
         }
         {
           cta && (
-            <li>
+            <li class="cta">
               <a class="button small" href="#download">
                 Download
               </a>
@@ -78,8 +78,17 @@ const { cta = false } = Astro.props;
   ul {
     display: flex;
     align-items: center;
-    gap: clamp(18px, 4vw, 28px);
+    gap: clamp(14px, 4vw, 28px);
     padding: 0;
     list-style: none;
+  }
+
+  /* The bar cannot shrink below its content, so on narrow screens the
+     Download pill has to go — the hero's download button is right below.
+     Without this the header widens the page and forces horizontal scroll. */
+  @media (width <= 640px) {
+    .cta {
+      display: none;
+    }
   }
 </style>
