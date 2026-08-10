@@ -66,6 +66,24 @@ check, and so on). When the app changes, those files are what needs updating.
 **One deliberate token deviation:** `--ink-3` is `#7f7f7a` instead of the
 mock's `#6e6e69`, because 12 px text needs 4.5:1 contrast for WCAG AA.
 
+## Deployment
+
+The site deploys to Cloudflare Workers as an assets-only Worker — no server
+code, Cloudflare serves `dist/` directly. `wrangler.jsonc` declares the
+custom domain (`reclaim-app.dev`), disables the `workers.dev` subdomain in
+production, and keeps preview URLs on for branch builds. `public/_headers`
+adds security headers and immutable caching for hashed assets; unknown URLs
+get the 404 page via `not_found_handling`.
+
+Deploys are automatic: the repository is connected to Workers Builds, which
+runs `npm run build` and `npx wrangler deploy` on every push to `main`.
+Other branches build too and get a shareable preview URL. To test the
+production serving path locally:
+
+```bash
+npm run build && npx wrangler dev
+```
+
 ## Quality bar
 
 Lighthouse 100/100 in every category (performance, accessibility, best
