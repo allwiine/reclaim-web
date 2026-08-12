@@ -3,7 +3,8 @@
 > Reclaim is a free, open-source macOS app that finds and cleans wasted
 > developer storage. It measures a curated catalogue of known cache
 > locations across build systems, IDEs, package managers, runtimes and
-> AI tools, rates each one Safe, Caution or Destructive, and moves what
+> AI tools, finds regenerable artifacts inside the project folders you
+> add, rates each item Safe, Caution or Destructive, and moves what
 > you choose to the Trash. Nothing about your machine leaves it.
 
 - [Home](https://reclaim-app.dev/): what Reclaim covers, the safety model and the download
