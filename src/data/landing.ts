@@ -60,6 +60,11 @@ export const coverage: Coverage[] = [
     detail:
       'Virtual disks that only ever grow. Reclaim measures them and hands you the tool’s own prune command rather than reaching inside.',
   },
+  {
+    name: 'Your projects',
+    detail:
+      'Add your development folders and Reclaim finds the artifacts inside each repo that a tool can rebuild, like node_modules, build outputs and virtualenvs. Forgotten projects stand out by size and last activity, and only the artifacts are cleaned, never your code.',
+  },
 ];
 
 export const ratings: Rating[] = [
@@ -91,7 +96,7 @@ export const guarantees: Guarantee[] = [
   },
   {
     title: 'Guess',
-    text: 'Every location in the catalogue is one someone identified, described and rated by hand. Nothing is removed on a pattern match.',
+    text: 'Every location in the catalogue is one someone identified, described and rated by hand, and a folder inside a project only counts as an artifact when a marker file proves a tool generates it. Nothing is removed just because it looks like a cache.',
   },
   {
     title: 'Phone home',

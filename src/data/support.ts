@@ -89,6 +89,11 @@ export const faqs: Faq[] = [
       'Any emulator built on that image stops booting until the image is downloaded again from the SDK Manager. Nothing is lost for good, but it is why system images are rated Caution.',
   },
   {
+    question: 'Can it clean up inside my own projects?',
+    answer:
+      'Yes, if you add your development folders from the welcome screen or in Settings. Reclaim looks inside each project for artifacts a tool can rebuild, like node_modules, build outputs and virtualenvs. A folder is only offered when a marker file proves which tool generates it, the way package.json vouches for node_modules, so your source files are never touched. Cleaned artifacts go to the Trash like everything else.',
+  },
+  {
     question: 'Can I run it on a schedule?',
     answer:
       'Yes. Settings has a weekly background scan, and with “Open at login” enabled it keeps running without opening the app yourself. An optional notification fires when more than 25 GB is reclaimable. The scan never cleans anything on its own.',
