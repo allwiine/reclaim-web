@@ -35,7 +35,7 @@ export const sections: PrivacySection[] = [
   {
     title: 'What leaves your Mac',
     paras: [
-      'By default, Reclaim contacts a single endpoint — the project’s GitHub releases — to check whether a newer version is available. That request carries the app version and nothing else: no identifier, no machine details, no usage data. It can be turned off in Settings, and the app works normally without it.',
+      'By default, Reclaim contacts a single endpoint, the project’s GitHub releases, to check whether a newer version is available. That request carries the app version and nothing else: no identifier, no machine details, no usage data. It can be turned off in Settings, and the app works normally without it.',
       'There is no other outbound network activity.',
     ],
   },

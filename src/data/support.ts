@@ -43,7 +43,7 @@ export const channels: Channel[] = [
   },
   {
     title: 'Catalogue',
-    detail: 'Every location Reclaim knows about, with its safety rating — one reviewed Swift file.',
+    detail: 'Every location Reclaim knows about, with its safety rating, in one reviewed Swift file.',
     action: 'Browse the list',
     href: SITE.catalogue,
   },
@@ -101,7 +101,7 @@ export const faqs: Faq[] = [
   {
     question: 'Does it need Full Disk Access?',
     answer:
-      'Only for a few locations inside ~/Library that macOS protects. Reclaim works without it and shows a banner instead of failing — protected locations can simply measure as empty until access is granted in System Settings → Privacy & Security.',
+      'Only for a few locations inside ~/Library that macOS protects. Reclaim works without it and shows a banner instead of failing. Protected locations can simply measure as empty until access is granted in System Settings → Privacy & Security.',
   },
   {
     question: 'What does it cost?',
@@ -113,7 +113,7 @@ export const faqs: Faq[] = [
 export const recovery: Recovery[] = [
   {
     title: 'A clean removed too much',
-    text: 'Open the Trash and use Put Back — macOS remembers where every item came from. History records exactly what was moved, when, and how much space it freed.',
+    text: 'Open the Trash and use Put Back. macOS remembers where every item came from, and History records exactly what was moved, when, and how much space it freed.',
   },
   {
     title: 'Xcode is behaving strangely after a clean',

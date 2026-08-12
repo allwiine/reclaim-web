@@ -100,7 +100,7 @@ export const guarantees: Guarantee[] = [
   },
   {
     title: 'Phone home',
-    text: 'No accounts, no analytics, no crash reporting, no payment. Beyond an optional update check, nothing leaves your Mac — and you can read the code to confirm it.',
+    text: 'No accounts, no analytics, no crash reporting, no payment. Beyond an optional update check, nothing leaves your Mac, and you can read the code to confirm it.',
   },
 ];
 
