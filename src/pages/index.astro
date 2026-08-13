@@ -427,11 +427,6 @@ import Base from '../layouts/Base.astro';
     color: var(--ink-2);
   }
 
-  /* Seven cards in a three-column grid: the last one spans the row. */
-  .coverage li:last-child {
-    grid-column: 1 / -1;
-  }
-
   .coverage li:last-child p {
     max-width: 64ch;
   }
@@ -608,6 +603,11 @@ import Base from '../layouts/Base.astro';
   @media (width <= 920px) {
     .coverage {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Nine cards in two columns leave a lone cell; span the last one. */
+    .coverage li:last-child {
+      grid-column: 1 / -1;
     }
   }
 
