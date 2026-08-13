@@ -61,6 +61,16 @@ export const coverage: Coverage[] = [
       'Virtual disks that only ever grow. Reclaim measures them and hands you the tool’s own prune command rather than reaching inside.',
   },
   {
+    name: 'Game engines',
+    detail:
+      'Package caches, derived data and export templates that the engine rebuilds on demand, quietly growing into tens of gigabytes on machines that build games.',
+  },
+  {
+    name: 'Cloud and DevOps',
+    detail:
+      'Downloaded providers, plugin caches, local emulators and logs that infrastructure tools keep around long after the last deploy.',
+  },
+  {
     name: 'Your projects',
     detail:
       'Add your development folders and Reclaim finds the artifacts inside each repo that a tool can rebuild, like node_modules, build outputs and virtualenvs. Forgotten projects stand out by size and last activity, and only the artifacts are cleaned, never your code.',
