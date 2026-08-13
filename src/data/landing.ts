@@ -73,7 +73,7 @@ export const coverage: Coverage[] = [
   {
     name: 'Your projects',
     detail:
-      'Add your development folders and Reclaim finds the artifacts inside each repo that a tool can rebuild, like node_modules, build outputs and virtualenvs. Forgotten projects stand out by size and last activity, and only the artifacts are cleaned, never your code.',
+      'Add your development folders and Reclaim finds the rebuildable artifacts inside each repo, like node_modules and build outputs. Only the artifacts are cleaned, never your code.',
   },
 ];
 
