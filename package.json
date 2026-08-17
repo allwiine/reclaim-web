@@ -10,12 +10,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "validate": "html-validate \"dist/**/*.html\""
   },
   "dependencies": {
     "astro": "^7.2.0"
   },
   "devDependencies": {
+    "html-validate": "^11.7.0",
     "wrangler": "^4.120.0"
   }
 }
