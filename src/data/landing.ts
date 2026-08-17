@@ -116,7 +116,7 @@ export const guarantees: Guarantee[] = [
 
 export const mockTiles: MockTile[] = [
   { name: 'derived-data', size: '34.2 GB', share: 100 },
-  { name: 'vm-disk', size: '31.4 GB', share: 92 },
+  { name: 'vm-disk', size: '31.6 GB', share: 92 },
   { name: 'device-support', size: '18.6 GB', share: 54 },
   { name: 'build-caches', size: '16.3 GB', share: 48 },
   { name: 'model-weights', size: '14.7 GB', share: 43 },
