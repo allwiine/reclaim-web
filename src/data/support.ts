@@ -73,9 +73,15 @@ export const faqs: Faq[] = [
     code: 'go clean -modcache',
   },
   {
+    question: 'Why is the Nix store only measured?',
+    answer:
+      'Store paths reference each other, and only Nix knows which ones your profiles still reach, so deleting by hand risks breaking anything that links into the store. Reclaim reports the size and leaves collection to Nix, which removes unreferenced paths and old generations.',
+    code: 'nix-collect-garbage -d',
+  },
+  {
     question: 'Will it touch my Claude Code login or settings?',
     answer:
-      'No. Authentication, settings and plugins are not part of the catalogue and cannot be selected, and a unit test enforces that on every build. Only caches, logs and, if you explicitly choose them, session transcripts are ever offered.',
+      'No. Authentication, settings, plugins and things you wrote yourself, like CLAUDE.md, agents, commands and skills, are not part of the catalogue and cannot be selected, and a unit test enforces that on every build. Only caches, logs and, if you explicitly choose them, session transcripts are ever offered.',
   },
   {
     question: 'What happens if I delete session transcripts?',
@@ -102,6 +108,11 @@ export const faqs: Faq[] = [
     question: 'Does it need Full Disk Access?',
     answer:
       'Only for a few locations inside ~/Library that macOS protects. Reclaim works without it and shows a banner instead of failing. Protected locations can simply measure as empty until access is granted in System Settings → Privacy & Security.',
+  },
+  {
+    question: 'What does it need to run?',
+    answer:
+      'macOS 26 (Tahoe) or later. The download is one universal app, notarized by Apple, that runs natively on Apple silicon and Intel Macs, and it keeps itself current through Sparkle unless you turn the update check off in Settings.',
   },
   {
     question: 'What does it cost?',
