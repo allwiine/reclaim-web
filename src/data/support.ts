@@ -110,6 +110,11 @@ export const faqs: Faq[] = [
       'Only for a few locations inside ~/Library that macOS protects. Reclaim works without it and shows a banner instead of failing. Protected locations can simply measure as empty until access is granted in System Settings → Privacy & Security.',
   },
   {
+    question: 'What does it need to run?',
+    answer:
+      'macOS 26 (Tahoe) or later. The download is one universal app, notarized by Apple, that runs natively on Apple silicon and Intel Macs, and it keeps itself current through Sparkle unless you turn the update check off in Settings.',
+  },
+  {
     question: 'What does it cost?',
     answer:
       'Nothing. Reclaim is free and open source under the MIT license, with no paid tier, no license keys and no account. If it saves you a weekend of disk archaeology, an issue or a pull request is the only thanks the project needs.',
