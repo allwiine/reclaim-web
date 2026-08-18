@@ -98,7 +98,7 @@ export const ratings: Rating[] = [
 export const guarantees: Guarantee[] = [
   {
     title: 'Touch credentials or settings',
-    text: 'Auth tokens, configuration and plugins are structurally excluded from the catalogue. A unit test enforces it on every build.',
+    text: 'Auth tokens, configuration, plugins and content you wrote yourself, like custom commands for AI assistants, are structurally excluded from the catalogue. A unit test enforces it on every build, and the cleanup engine refuses the paths again at runtime.',
   },
   {
     title: 'Reach inside another tool’s store',

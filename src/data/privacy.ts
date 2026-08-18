@@ -28,7 +28,7 @@ export const sections: PrivacySection[] = [
   {
     title: 'What is excluded',
     paras: [
-      'Credentials, settings and plugin data are not part of the catalogue and cannot be selected. That covers authentication tokens, editor and IDE configuration, key bindings, and the equivalent for every tool Reclaim supports. A unit test enforces the exclusion on every build.',
+      'Credentials, settings, plugin data and content you created are not part of the catalogue and cannot be selected. That covers authentication tokens, editor and IDE configuration, key bindings and snippets, the instructions and custom commands written for AI assistants, and the equivalent for every tool Reclaim supports. A unit test enforces the exclusion on every build.',
       'Settings lists every one of these exclusions, so you can see exactly what is off-limits without reading the source.',
     ],
   },

@@ -75,7 +75,7 @@ export const faqs: Faq[] = [
   {
     question: 'Will it touch my Claude Code login or settings?',
     answer:
-      'No. Authentication, settings and plugins are not part of the catalogue and cannot be selected, and a unit test enforces that on every build. Only caches, logs and, if you explicitly choose them, session transcripts are ever offered.',
+      'No. Authentication, settings, plugins and things you wrote yourself, like CLAUDE.md, agents, commands and skills, are not part of the catalogue and cannot be selected, and a unit test enforces that on every build. Only caches, logs and, if you explicitly choose them, session transcripts are ever offered.',
   },
   {
     question: 'What happens if I delete session transcripts?',
