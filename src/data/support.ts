@@ -73,6 +73,12 @@ export const faqs: Faq[] = [
     code: 'go clean -modcache',
   },
   {
+    question: 'Why is the Nix store only measured?',
+    answer:
+      'Store paths reference each other, and only Nix knows which ones your profiles still reach, so deleting by hand risks breaking anything that links into the store. Reclaim reports the size and leaves collection to Nix, which removes unreferenced paths and old generations.',
+    code: 'nix-collect-garbage -d',
+  },
+  {
     question: 'Will it touch my Claude Code login or settings?',
     answer:
       'No. Authentication, settings, plugins and things you wrote yourself, like CLAUDE.md, agents, commands and skills, are not part of the catalogue and cannot be selected, and a unit test enforces that on every build. Only caches, logs and, if you explicitly choose them, session transcripts are ever offered.',
